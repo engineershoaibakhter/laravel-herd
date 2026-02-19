@@ -58,8 +58,20 @@
       <li><a>Item 3</a></li>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn">Button</a>
+  <div class="navbar-end space-x-2">
+    @guest
+        <a class="btn btn-primary" href="/register">Register</a>
+        <a class="btn btn-secondary" href="/login">Login</a>
+    @endguest
+
+    @auth
+      <form action="/logout" method="POST">
+        @csrf
+        @method("DELETE")
+
+        <button class="btn btn-primary mt-4">Logout</button>
+      </form>
+    @endauth
   </div>
 </div>
 
